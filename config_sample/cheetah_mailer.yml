@@ -1,0 +1,13 @@
+# CheetahMailer Configuration
+--- 
+:login:
+  :username: some_account
+  :password: s0me_passw0rd
+
+:defaults:
+  :eid: 943679      # default 'passthrough' template/event [EID REQUIRED]
+  :aid: 9466578924  # optional tracking code
+  :test: 0          # Send with a value of ‘1’ to allow triggering of an event that is "Not Deployed".
+
+
+# Don't forget the README
