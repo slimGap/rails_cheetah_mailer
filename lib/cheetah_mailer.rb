@@ -1,4 +1,5 @@
 require 'curb'
+require 'cgi'
 module CheetahMailer
   
     #####################################################################################
@@ -61,8 +62,8 @@ module CheetahMailer
       params = [
       Curl::PostField.content('email', email),
       Curl::PostField.content('eid', options.delete(:eid)),
-      Curl::PostField.content('SUBJECT_LINE',options.delete(:subject)),
-      Curl::PostField.content('CONTENT',options.delete(:body)),
+      Curl::PostField.content('SUBJECT_LINE', options.delete(:subject)),
+      Curl::PostField.content('CONTENT', CGI.escape(options.delete(:body))),
       Curl::PostField.content("HTML", options.delete(:html).to_s ) ]
       options.each { |k, v| params << Curl::PostField.content(k.to_s, v) }
       
